@@ -1,4 +1,4 @@
-package com.objectpartners.plummer.junit5
+package com.objectpartners.plummer.states
 
 import org.springframework.stereotype.Component
 
@@ -8,7 +8,10 @@ open class DataBeanImpl: DataBean {
         return DATA
     }
 
-    override fun getStatesStartingWith(c: Char) : List<String> {
+    override fun getStatesStartingWith(c: Char?) : List<String> {
+        if (c == null) {
+            throw IllegalArgumentException("Character cannot be null");
+        }
         return DATA.filter { state -> state.startsWith(c) }.toList()
     }
 }

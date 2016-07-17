@@ -1,4 +1,4 @@
-package com.objectpartners.plummer.junit5
+package com.objectpartners.plummer.states
 
 import kotlin.collections.List
 
