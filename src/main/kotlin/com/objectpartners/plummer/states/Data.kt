@@ -2,7 +2,7 @@ package com.objectpartners.plummer.states
 
 import kotlin.collections.List
 
-val DATA: List<String> = listOf(
+val STATES: List<String> = listOf(
         "Alabama",
         "Alaska",
         "Arizona",

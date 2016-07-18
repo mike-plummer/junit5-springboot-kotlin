@@ -1,6 +1,6 @@
 package com.objectpartners.plummer.states.junit5
 
-import com.objectpartners.plummer.states.DATA
+import com.objectpartners.plummer.states.STATES
 import com.objectpartners.plummer.states.DataBean
 import com.objectpartners.plummer.states.safeList
 import com.objectpartners.plummer.states.ApplicationTest
@@ -45,7 +45,7 @@ class DataBeanTest : ApplicationTest() {
 
             @TestFactory
             fun shouldReturnAllValuesFromDataset(): Collection<DynamicTest> {
-                return DATA.map { state ->
+                return STATES.map { state ->
                     dynamicTest(state) {
                         assertTrue(values.contains(state))
                     }

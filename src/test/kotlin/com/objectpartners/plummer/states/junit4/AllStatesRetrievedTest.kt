@@ -22,7 +22,7 @@ class TestAllValuesReturned(val state: String): ApplicationTest() {
     companion object Parameters {
         @JvmStatic
         @Parameterized.Parameters(name = "{0}")
-        fun parameters(): List<Array<Any>> = DATA.map { state -> arrayOf<Any>(state) }.toList()
+        fun parameters(): List<Array<Any>> = STATES.map { state -> arrayOf<Any>(state) }.toList()
     }
 
     @Test
