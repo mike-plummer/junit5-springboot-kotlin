@@ -2,7 +2,6 @@ package com.objectpartners.plummer.states.junit4
 
 import com.objectpartners.plummer.states.ApplicationTest
 import com.objectpartners.plummer.states.DataBean
-import com.objectpartners.plummer.states.safeList
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -13,7 +12,7 @@ import java.util.*
 @RunWith(SpringJUnit4ClassRunner::class)
 class DataBeanTest: ApplicationTest() {
 
-    @Autowired var dataBean: DataBean? = null
+    @Autowired lateinit var dataBean: DataBean
 
     @Test
     fun testAutowiring() {
@@ -22,7 +21,7 @@ class DataBeanTest: ApplicationTest() {
 
     @Test
     fun retrievingAllStates() {
-        val values: List<String> = safeList(dataBean?.getAllStates())
+        val values: List<String> = dataBean.getAllStates()
 
         assertEquals(values.size, 50)
 
@@ -33,7 +32,7 @@ class DataBeanTest: ApplicationTest() {
 
     @Test
     fun retrievingByMatchingCharacter() {
-        val matches = safeList(dataBean?.getStatesStartingWith('A'))
+        val matches = dataBean.getStatesStartingWith('A')
 
         assertEquals(matches.size, 4)
 
@@ -44,12 +43,12 @@ class DataBeanTest: ApplicationTest() {
 
     @Test
     fun retrievingByNonMatchingCharacter() {
-        val matches: List<String> = safeList(dataBean?.getStatesStartingWith('!'))
+        val matches: List<String> = dataBean.getStatesStartingWith('!')
         assertTrue(matches.isEmpty())
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun retrievingInvalidValue() {
-        dataBean?.getStatesStartingWith(null)
+        dataBean.getStatesStartingWith(null)
     }
 }

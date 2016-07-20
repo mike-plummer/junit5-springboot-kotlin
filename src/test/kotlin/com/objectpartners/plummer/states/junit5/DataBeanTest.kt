@@ -2,7 +2,6 @@ package com.objectpartners.plummer.states.junit5
 
 import com.objectpartners.plummer.states.STATES
 import com.objectpartners.plummer.states.DataBean
-import com.objectpartners.plummer.states.safeList
 import com.objectpartners.plummer.states.ApplicationTest
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.extension.ExtendWith
@@ -17,9 +16,9 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
 @ExtendWith(SpringExtension::class)
-class DataBeanTest : ApplicationTest() {
+class DataBeanTest: ApplicationTest() {
 
-    @Autowired var dataBean: DataBean? = null
+    @Autowired lateinit var dataBean: DataBean
 
     @Test
     fun testAutowiring() {
@@ -35,7 +34,7 @@ class DataBeanTest : ApplicationTest() {
 
             @BeforeEach
             fun init() {
-                values = safeList(dataBean?.getAllStates()?.toList())
+                values = dataBean.getAllStates().toList()
             }
 
             @Test
@@ -68,7 +67,7 @@ class DataBeanTest : ApplicationTest() {
 
                 @BeforeEach
                 fun init() {
-                    matches = safeList(dataBean?.getStatesStartingWith('A'))
+                    matches = dataBean.getStatesStartingWith('A')
                 }
 
                 @Test
@@ -88,7 +87,7 @@ class DataBeanTest : ApplicationTest() {
             inner class withNonMatchingValue() {
                 @Test
                 fun shouldReturnEmptyList() {
-                    val matches: List<String> = safeList(dataBean?.getStatesStartingWith('!'))
+                    val matches: List<String> = dataBean.getStatesStartingWith('!')
                     assertTrue(matches.isEmpty())
                 }
             }
@@ -97,7 +96,7 @@ class DataBeanTest : ApplicationTest() {
             inner class withInvalidValue() {
                 @Test
                 fun shouldThrowError() {
-                    assertThrows(IllegalArgumentException::class.java, { dataBean?.getStatesStartingWith(null) })
+                    assertThrows(IllegalArgumentException::class.java, { dataBean.getStatesStartingWith(null) })
                 }
             }
         }
