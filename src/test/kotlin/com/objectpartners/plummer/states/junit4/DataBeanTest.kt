@@ -3,8 +3,7 @@ package com.objectpartners.plummer.states.junit4
 import com.objectpartners.plummer.states.ApplicationTest
 import com.objectpartners.plummer.states.DataBean
 import com.objectpartners.plummer.states.safeList
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,6 +14,11 @@ import java.util.*
 class DataBeanTest: ApplicationTest() {
 
     @Autowired var dataBean: DataBean? = null
+
+    @Test
+    fun testAutowiring() {
+        assertNotNull(dataBean)
+    }
 
     @Test
     fun retrievingAllStates() {

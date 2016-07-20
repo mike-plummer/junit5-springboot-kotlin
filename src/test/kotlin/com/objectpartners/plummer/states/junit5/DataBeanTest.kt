@@ -13,18 +13,25 @@ import java.util.*
 import org.junit.jupiter.api.DynamicTest.dynamicTest
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Assertions.assertThrows
+import org.springframework.boot.test.context.SpringBootTest
 
+@SpringBootTest
 @ExtendWith(SpringExtension::class)
 class DataBeanTest : ApplicationTest() {
 
-    @Autowired var dataBean: DataBean? = null;
+    @Autowired var dataBean: DataBean? = null
+
+    @Test
+    fun testAutowiring() {
+        assertNotNull(dataBean)
+    }
 
     @Nested
     inner class states() {
         @Nested
         inner class whenRetrievingAll() {
 
-            var values: List<String> = Collections.emptyList();
+            var values: List<String> = Collections.emptyList()
 
             @BeforeEach
             fun init() {
