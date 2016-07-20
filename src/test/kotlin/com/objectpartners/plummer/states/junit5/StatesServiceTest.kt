@@ -1,24 +1,20 @@
 package com.objectpartners.plummer.states.junit5
 
-import com.objectpartners.plummer.states.STATES
-import com.objectpartners.plummer.states.DataBean
 import com.objectpartners.plummer.states.ApplicationTest
+import com.objectpartners.plummer.states.STATES
+import com.objectpartners.plummer.states.StatesService
 import org.junit.jupiter.api.*
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.DynamicTest.dynamicTest
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.junit.jupiter.SpringExtension
-import org.junit.jupiter.api.Assertions.*
 import java.util.*
-import org.junit.jupiter.api.DynamicTest.dynamicTest
-import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.Assertions.assertThrows
-import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest
 @ExtendWith(SpringExtension::class)
-class DataBeanTest: ApplicationTest() {
+class StatesServiceTest : ApplicationTest() {
 
-    @Autowired lateinit var dataBean: DataBean
+    @Autowired lateinit var dataBean: StatesService
 
     @Test
     fun testAutowiring() {
@@ -57,9 +53,15 @@ class DataBeanTest: ApplicationTest() {
                     }
                 }.toList()
             }
+
+            @AfterEach
+            fun cleanup() {
+                values = Collections.emptyList()
+            }
         }
 
         @Nested
+        @Tag("inputs")
         inner class whenRetrievingByStartingCharacter {
             @Nested
             inner class withMatchingValue() {

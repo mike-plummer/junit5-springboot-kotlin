@@ -3,7 +3,7 @@ package com.objectpartners.plummer.states
 import org.springframework.stereotype.Component
 
 @Component
-open class DataBeanImpl: DataBean {
+open class StatesServiceImpl : StatesService {
     override fun getAllStates() : List<String> {
         return STATES
     }

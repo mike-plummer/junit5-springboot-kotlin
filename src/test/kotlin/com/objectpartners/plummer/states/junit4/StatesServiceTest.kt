@@ -1,7 +1,7 @@
 package com.objectpartners.plummer.states.junit4
 
 import com.objectpartners.plummer.states.ApplicationTest
-import com.objectpartners.plummer.states.DataBean
+import com.objectpartners.plummer.states.StatesService
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -10,9 +10,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import java.util.*
 
 @RunWith(SpringJUnit4ClassRunner::class)
-class DataBeanTest: ApplicationTest() {
+class StatesServiceTest : ApplicationTest() {
 
-    @Autowired lateinit var dataBean: DataBean
+    @Autowired lateinit var dataBean: StatesService
 
     @Test
     fun testAutowiring() {
