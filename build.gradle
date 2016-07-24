@@ -2,9 +2,9 @@ buildscript {
 	ext {
 		springBootVersion = '1.4.0.RC1'
 		kotlinVersion = '1.0.3'
-        junitPlatformVersion = '1.0.0-M1'
-        junitJupiterVersion  = '5.0.0-M1'
-        junitVintageVersion  = '4.12.0-M1'
+        junitPlatformVersion = '1.0.0-M2'
+        junitJupiterVersion  = '5.0.0-M2'
+        junitVintageVersion  = '4.12.0-M2'
 	}
 	repositories {
 		//Use non-HTTPS MavenCentral repo to work around MITM corp proxies. Blerg.

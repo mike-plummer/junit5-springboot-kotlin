@@ -53,7 +53,6 @@ class FibonacciTest: ApplicationTest() {
     @DisplayName("Crazy-long computational test to demonstrate that streams are super awesome")
     fun largeLoadTest() {
         val max: Long = Long.MAX_VALUE;
-        // Try a million values to make sure we don't have crazy-low fail limits
         val result: List<Long> = fibonacciSvc.fibonacci(max)
 
         if (result.filter { value -> value <= 0 || value > max }.any()) {
