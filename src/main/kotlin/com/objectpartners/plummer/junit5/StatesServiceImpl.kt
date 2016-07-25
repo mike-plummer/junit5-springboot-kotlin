@@ -9,8 +9,10 @@ open class StatesServiceImpl : StatesService {
     }
 
     override fun getStatesStartingWith(c: Char?) : List<String> {
+        // Silly conditional since we could just declare the function argument as non-nullable,
+        // but I wanted to test our exception conditions in JUnit 5 tests.
         if (c == null) {
-            throw IllegalArgumentException("Character cannot be null");
+            throw IllegalArgumentException("Character cannot be null")
         }
         return STATES.filter { state -> state.startsWith(c) }.toList()
     }

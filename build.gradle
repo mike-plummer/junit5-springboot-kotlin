@@ -1,21 +1,21 @@
 buildscript {
-	ext {
-		springBootVersion = '1.4.0.RC1'
-		kotlinVersion = '1.0.3'
+    ext {
+        springBootVersion = '1.4.0.RC1'
+        kotlinVersion = '1.0.3'
         junitPlatformVersion = '1.0.0-M2'
-        junitJupiterVersion  = '5.0.0-M2'
-        junitVintageVersion  = '4.12.0-M2'
-	}
-	repositories {
-		//Use non-HTTPS MavenCentral repo to work around MITM corp proxies. Blerg.
-		maven { url "http://repo1.maven.org/maven2" }
+        junitJupiterVersion = '5.0.0-M2'
+        junitVintageVersion = '4.12.0-M2'
+    }
+    repositories {
+        //Use non-HTTPS MavenCentral repo to work around MITM corp proxies. Blerg.
+        maven { url "http://repo1.maven.org/maven2" }
         maven { url "http://repo.spring.io/milestone" }
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
-		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M1'
-	}
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M1'
+    }
 }
 
 apply plugin: 'kotlin'
@@ -25,45 +25,45 @@ apply plugin: 'spring-boot'
 apply plugin: 'org.junit.platform.gradle.plugin'
 
 jar {
-	baseName = 'junit5-springboot-kotlin'
-	version = '0.0.1-SNAPSHOT'
+    baseName = 'junit5-springboot-kotlin'
+    version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-	//Use non-HTTPS MavenCentral repo to work around MITM corp proxies. Blerg.
-	maven { url "http://repo1.maven.org/maven2" }
+    //Use non-HTTPS MavenCentral repo to work around MITM corp proxies. Blerg.
+    maven { url "http://repo1.maven.org/maven2" }
     maven { url "http://repo.spring.io/milestone" }
 }
 
 junitPlatform {
-	tags {
-		// include 'TAGS TO INCLUDE'
-		// exclude 'TAGS TO EXCLUDE'
-	}
+    tags {
+        // include 'TAGS TO INCLUDE'
+        // exclude 'TAGS TO EXCLUDE'
+    }
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter')
-	compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 
-	// JUnit Jupiter API
-	testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
-	testCompile("org.junit.platform:junit-platform-runner:${junitPlatformVersion}")
+    // JUnit Jupiter API
+    testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testCompile("org.junit.platform:junit-platform-runner:${junitPlatformVersion}")
 
-	// Spring extension for JUnit5
-	testCompile fileTree(dir: 'libs', include: '*.jar')
+    // Spring extension for JUnit5
+    testCompile fileTree(dir: 'libs', include: '*.jar')
 
-	// TestEngine implementations (only needed at runtime)
-	testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")	//JUnit5
-	testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")	//JUnit4
+    // TestEngine implementations (only needed at runtime)
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")    //JUnit5
+    testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")    //JUnit4
 }
 
 eclipse {
-	classpath {
-		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-	}
+    classpath {
+        containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+        containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+    }
 }

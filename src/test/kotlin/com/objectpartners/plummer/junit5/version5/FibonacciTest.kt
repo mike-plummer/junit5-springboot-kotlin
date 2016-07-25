@@ -1,4 +1,4 @@
-package com.objectpartners.plummer.junit5.version5;
+package com.objectpartners.plummer.junit5.version5
 
 import com.objectpartners.plummer.junit5.ApplicationTest
 import com.objectpartners.plummer.junit5.FibonacciService
@@ -19,7 +19,7 @@ class FibonacciTest: ApplicationTest() {
     inner class testInputValueOf {
         @Test
         fun largePositive() {
-            val result: List<Long> = fibonacciSvc.fibonacci(100);
+            val result: List<Long> = fibonacciSvc.fibonacci(100)
             assertEquals(result, listOf<Long>(1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89))
         }
 
@@ -39,7 +39,7 @@ class FibonacciTest: ApplicationTest() {
 
     @Test
     fun mediumLoadTest() {
-        val max: Long = 1000000;
+        val max: Long = 1000000
         // Try a million values to make sure we don't have crazy-low fail limits
         val result: List<Long> = fibonacciSvc.fibonacci(max)
 
@@ -50,9 +50,9 @@ class FibonacciTest: ApplicationTest() {
 
     @Test
     @Disabled   //Don't run this test! It takes waaaaay too long!!!!
-    @DisplayName("Crazy-long computational test to demonstrate that streams are super awesome")
+    @DisplayName("Very long test for load testing that is disabled by default")
     fun largeLoadTest() {
-        val max: Long = Long.MAX_VALUE;
+        val max: Long = Long.MAX_VALUE
         val result: List<Long> = fibonacciSvc.fibonacci(max)
 
         if (result.filter { value -> value <= 0 || value > max }.any()) {

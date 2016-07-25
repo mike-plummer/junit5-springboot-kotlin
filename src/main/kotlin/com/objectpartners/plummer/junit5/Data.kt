@@ -2,6 +2,7 @@ package com.objectpartners.plummer.junit5
 
 import kotlin.collections.List
 
+// Package level data structure
 val STATES: List<String> = listOf(
         "Alabama",
         "Alaska",
