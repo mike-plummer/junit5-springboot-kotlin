@@ -1,7 +1,7 @@
-package com.objectpartners.plummer.states.junit5;
+package com.objectpartners.plummer.junit5.version5;
 
-import com.objectpartners.plummer.states.ApplicationTest
-import com.objectpartners.plummer.states.FibonacciService
+import com.objectpartners.plummer.junit5.ApplicationTest
+import com.objectpartners.plummer.junit5.FibonacciService
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.extension.ExtendWith

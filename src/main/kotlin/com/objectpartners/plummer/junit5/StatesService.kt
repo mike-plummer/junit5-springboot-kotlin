@@ -1,4 +1,4 @@
-package com.objectpartners.plummer.states
+package com.objectpartners.plummer.junit5
 
 interface StatesService {
     fun getAllStates(): List<String>

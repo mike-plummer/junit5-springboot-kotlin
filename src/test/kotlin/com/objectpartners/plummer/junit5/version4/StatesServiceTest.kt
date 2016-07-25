@@ -1,7 +1,7 @@
-package com.objectpartners.plummer.states.junit4
+package com.objectpartners.plummer.junit5.version4
 
-import com.objectpartners.plummer.states.ApplicationTest
-import com.objectpartners.plummer.states.StatesService
+import com.objectpartners.plummer.junit5.ApplicationTest
+import com.objectpartners.plummer.junit5.StatesService
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -1,7 +1,7 @@
-package com.objectpartners.plummer.states.junit5
+package com.objectpartners.plummer.junit5.version5
 
-import com.objectpartners.plummer.states.junit5.tracking.TestTracker
-import com.objectpartners.plummer.states.junit5.tracking.TestTrackerResolver
+import com.objectpartners.plummer.junit5.version5.tracking.TestTracker
+import com.objectpartners.plummer.junit5.version5.tracking.TestTrackerResolver
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals

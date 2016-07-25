@@ -1,8 +1,8 @@
-package com.objectpartners.plummer.states.junit5
+package com.objectpartners.plummer.junit5.version5
 
-import com.objectpartners.plummer.states.ApplicationTest
-import com.objectpartners.plummer.states.STATES
-import com.objectpartners.plummer.states.StatesService
+import com.objectpartners.plummer.junit5.ApplicationTest
+import com.objectpartners.plummer.junit5.STATES
+import com.objectpartners.plummer.junit5.StatesService
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DynamicTest.dynamicTest

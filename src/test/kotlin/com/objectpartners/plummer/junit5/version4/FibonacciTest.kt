@@ -1,7 +1,7 @@
-package com.objectpartners.plummer.states.junit4;
+package com.objectpartners.plummer.junit5.version4;
 
-import com.objectpartners.plummer.states.ApplicationTest
-import com.objectpartners.plummer.states.FibonacciService
+import com.objectpartners.plummer.junit5.ApplicationTest
+import com.objectpartners.plummer.junit5.FibonacciService
 import org.junit.Assert.assertEquals
 import org.junit.Assert.fail
 import org.junit.Ignore
